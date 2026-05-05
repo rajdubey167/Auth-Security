@@ -1,18 +1,24 @@
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 const sendEmail = async (options) => {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.SMTP_EMAIL,
+      pass: process.env.SMTP_PASSWORD,
+    },
+  });
 
-  await resend.emails.send({
-    from: `${process.env.FROM_NAME || 'AuthSystem'} <onboarding@resend.dev>`,
+  const message = {
+    from: `${process.env.FROM_NAME || 'AuthSystem'} <${process.env.FROM_EMAIL}>`,
     to: options.email,
     subject: options.subject,
     text: options.message,
     html: options.html,
-  });
+  };
 
-  console.log('Email sent via Resend to:', options.email);
+  await transporter.sendMail(message);
+  console.log('Email sent to:', options.email);
 };
 
 export default sendEmail;
-

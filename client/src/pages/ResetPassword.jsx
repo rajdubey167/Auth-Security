@@ -38,8 +38,9 @@ export default function ResetPassword() {
       setLoading(true);
       setError('');
       setMessage('');
+      const API_URL = import.meta.env.VITE_API_URL || '/api';
       const res = await axios.put(
-        `${import.meta.env.VITE_API_URL}/auth/resetpassword/${token}`,
+        `${API_URL}/auth/resetpassword/${token}`,
         { password }
       );
       setMessage(res.data.message);

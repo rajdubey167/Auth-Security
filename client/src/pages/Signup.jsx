@@ -57,7 +57,14 @@ export default function Signup() {
       setError('');
       setSuccess('');
       await signup(name, email, password);
-      setSuccess('Registration successful! Please check your email to verify your account.');
+      setSuccess(
+        <span>
+          Registration successful! Please check your email to verify your account.<br/>
+          <span style={{ fontSize: '11px', marginTop: '4px', display: 'block' }}>
+            (Note: it may arrive in your <strong style={{ color: '#ef4444', fontWeight: 700 }}>Spam</strong> folder)
+          </span>
+        </span>
+      );
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to create account.');
     } finally {

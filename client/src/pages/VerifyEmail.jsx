@@ -14,7 +14,7 @@ export default function VerifyEmail() {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+        const API_URL = import.meta.env.VITE_API_URL || '/api';
         await axios.get(`${API_URL}/auth/verifyemail/${token}`, { withCredentials: true });
         
         // Tell AuthContext to re-fetch the user session (now verified + logged in)

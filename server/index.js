@@ -21,7 +21,10 @@ app.set('trust proxy', 1);
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(helmet({ contentSecurityPolicy: false, crossOriginOpenerPolicy: false }));
+app.use(helmet({ 
+  contentSecurityPolicy: false, 
+  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" } 
+}));
 app.use(cors({
   origin: process.env.CLIENT_URL || 'http://localhost:5173',
   credentials: true, // Allow cookies to be sent

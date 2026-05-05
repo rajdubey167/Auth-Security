@@ -33,7 +33,7 @@ A production-grade authentication system built with **React**, **Node.js/Express
 - **bcryptjs** — password hashing (salted, never plain-text)
 - **jsonwebtoken (JWT)** — session tokens
 - **cookie-parser** — reading HTTP-only cookies
-- **nodemailer** — transactional email (SMTP/Gmail)
+- **mailjet** — transactional email via HTTP API (bypasses hosting SMTP blocks)
 - **express-rate-limit** — brute-force protection
 - **helmet** — security HTTP headers
 
@@ -101,7 +101,7 @@ Secure token generated via crypto.randomBytes()
 Token hashed (SHA-256) and saved to DB with 24h expiry
      │
      ▼
-Real email sent via SMTP (Gmail) with styled HTML button
+Real email sent via Mailjet HTTP API with styled HTML button
      │
      ▼
 User clicks link → /verify-email/:token
@@ -204,16 +204,14 @@ CLIENT_URL=http://localhost:5173
 ADMIN_EMAIL=admin@yourdomain.com
 ADMIN_PASSWORD=YourAdminPassword123!
 
-# SMTP Email (Gmail example)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=465
-SMTP_EMAIL=your_gmail@gmail.com
-SMTP_PASSWORD=your_gmail_app_password
+# Mailjet API Configuration
+MAILJET_API_KEY=your_mailjet_api_key_public
+MAILJET_SECRET_KEY=your_mailjet_secret_key_private
 FROM_NAME=AuthSystem
-FROM_EMAIL=your_gmail@gmail.com
+FROM_EMAIL=your_verified_mailjet_sender_email@gmail.com
 ```
 
-> **Gmail App Password:** Go to Google Account → Security → 2-Step Verification → App Passwords → Generate. Use this instead of your normal Gmail password.
+> **Mailjet API:** Create a free account at [Mailjet.com](https://www.mailjet.com/), verify your sender email, and retrieve your Master API and Secret Keys from Account Settings.
 
 ### `client/.env`
 ```env

@@ -102,6 +102,18 @@ export default function Signup() {
           <span style={{ fontSize: '20px', fontWeight: 600, letterSpacing: '-0.5px', color: '#18181b' }}>AuthSystem</span>
         </div>
 
+        {/* Cold Start Notice */}
+        <div style={{
+          width: '100%', maxWidth: '420px', marginBottom: '12px',
+          background: '#fefce8', border: '1px solid #fde68a',
+          borderRadius: '10px', padding: '10px 14px',
+          fontSize: '12px', color: '#92400e', lineHeight: '1.5',
+          display: 'flex', gap: '8px', alignItems: 'flex-start'
+        }}>
+          <span>⚠️</span>
+          <span><strong>Demo Notice:</strong> This app runs on Render's free tier. The first login or sign up may take up to 2 minutes while the server wakes up. Please be patient!</span>
+        </div>
+
         {/* Main Card */}
         <div style={{
           width: '100%', maxWidth: '420px',

@@ -52,14 +52,14 @@ export default function Login() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
-        body { margin: 0; background-color: #e5e7eb; overflow: hidden; }
+        body { margin: 0; background-color: #e5e7eb; overflow-x: hidden; overflow-y: auto; }
         * { box-sizing: border-box; }
         .input-field:focus { border-color: #a1a1aa !important; outline: none; box-shadow: 0 0 0 3px rgba(228, 228, 231, 0.5); }
         .btn-hover:hover { background-color: #27272a !important; }
         .google-btn:hover { background-color: #f4f4f5 !important; }
       `}</style>
       <div style={{
-        height: '100vh',
+        minHeight: '100vh',
         width: '100vw',
         display: 'flex',
         flexDirection: 'column',
@@ -67,7 +67,7 @@ export default function Login() {
         justifyContent: 'center',
         fontFamily: "'Inter', sans-serif",
         position: 'relative',
-        padding: '16px',
+        padding: '40px 16px',
       }}>
         {/* Brand Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>

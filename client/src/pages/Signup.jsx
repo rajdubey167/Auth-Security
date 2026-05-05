@@ -108,10 +108,10 @@ export default function Signup() {
           background: '#fefce8', border: '1px solid #fde68a',
           borderRadius: '10px', padding: '10px 14px',
           fontSize: '12px', color: '#92400e', lineHeight: '1.5',
-          display: 'flex', gap: '8px', alignItems: 'flex-start'
+          display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'center'
         }}>
           <span>⚠️</span>
-          <span><strong>Demo Notice:</strong> This app runs on Render's free tier. The first login or sign up may take up to 2 minutes while the server wakes up. Please be patient!</span>
+          <span>Since this is hosted on a free tier, login may take a few minutes.</span>
         </div>
 
         {/* Main Card */}
